@@ -4,17 +4,23 @@
   --text:#e6e9ef;
   --muted:#fcfcfc;
   --accent:#ff9500;      /* guiño a tu 'GO!' */
-  --brand:#6b7bff;       /* puedes ajustar a los colores del logo */
+  --brand:#e7dfd0;       /* puedes ajustar a los colores del logo */
 }
 
 
 *{box-sizing:border-box}
-html,body{height:100%}
+html,body {
+  height:100%
+}
+
 body{
   margin:0;
   background: radial-gradient(#efb85b, #553e04);
   color:var(--text);
-  font:400 16px/1.6 system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  font-family: "Inter", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 /* ===== INTRO intacto + fondo animado ===== */
@@ -215,3 +221,69 @@ p{ margin:0 0 16px 0; color:var(--text); }
 /* Opcional: separar un poco el logo de la parte inferior */
 .download .card img[alt*="Google"][alt*="Play"],
 .downl
+
+/* === FORZAR TIPOGRAFÍA (se nota sí o sí) === */
+:root{
+  --font-body: "Nunito", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  --font-head: "Bebas Neue", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Todo el texto del sitio */
+body { font-family: var(--font-body) !important; }
+
+/* H1 del hero (grande y diferente) */
+.hero-inner h1{
+  font-family: var(--font-head) !important;
+  font-weight: 400 !important; /* Bebas Neue es display */
+  letter-spacing: .5px;
+}
+
+/* Párrafo de la descripción (donde te molesta) */
+.hero .description p{
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;   /* más grueso para que se note */
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.8;
+}
+
+/* === Alinear el texto a la derecha del sprite en el HERO === */
+.hero{
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr; /* izquierda: sprite | derecha: texto */
+  gap: 24px;
+  align-items: center; /* centra verticalmente sprite y texto */
+}
+
+/* El bloque de título/subtítulo/botones ocupa la fila superior completa */
+.hero .hero-inner{
+  grid-column: 1 / -1;
+}
+
+/* Izquierda: sprite */
+.hero .sprite-container{
+  grid-column: 1;
+  justify-self: center;   /* céntralo en su columna */
+}
+
+/* Derecha: texto */
+.hero .description{
+  grid-column: 2;
+  align-self: center;     /* centra verticalmente con el sprite */
+  max-width: 680px;       /* ancho cómodo de lectura */
+}
+
+/* Alineación del párrafo */
+.hero .description p{
+  margin: 0;
+  text-align: left;       /* izquierda bien alineado */
+  line-height: 1.8;
+}
+
+/* Responsive: apila en móvil */
+@media (max-width: 720px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero .hero-inner,
+  .hero .sprite-container,
+  .hero .description{ grid-column: 1 / -1; }
+  .hero .description p{ text-align: center; }
+}
