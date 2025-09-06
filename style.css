@@ -287,3 +287,42 @@ body { font-family: var(--font-body) !important; }
   .hero .description{ grid-column: 1 / -1; }
   .hero .description p{ text-align: center; }
 }
+
+/* Centrar el bloque .description dentro del hero */
+.hero .description{
+  /* hace que el bloque se centre dentro del contenedor */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* ancho cómodo; ajusta a tu gusto */
+  max-width: 680px;
+
+  /* si el layout es flex y no se centra, esto ayuda */
+  align-self: center;
+}
+
+/* Centrar el contenido del párrafo */
+.hero .description p{
+  text-align: center;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* === Aumentar tamaño y ancho del texto del hero === */
+.hero .description{
+  max-width: 820px;          /* más ancho para que ocupe espacio */
+}
+
+.hero .description p{
+  font-size: clamp(18px, 2vw, 22px);  /* antes ~16–18px -> ahora 18–22px */
+  line-height: 1.9;                   /* más respiración entre líneas */
+  letter-spacing: 0.2px;              /* sutil, mejora lectura en grande */
+  margin: 0;                           /* sin márgenes raros */
+}
+
+/* Si en pantallas grandes quieres aún más grande, activa esto: */
+@media (min-width: 1280px){
+  .hero .description p{
+    font-size: clamp(20px, 1.6vw, 24px); /* sube un punto extra en desktop amplio */
+  }
+}
