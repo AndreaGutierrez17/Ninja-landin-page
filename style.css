@@ -326,3 +326,42 @@ body { font-family: var(--font-body) !important; }
     font-size: clamp(20px, 1.6vw, 24px); /* sube un punto extra en desktop amplio */
   }
 }
+
+/* Tarjeta para el texto del hero (sin cambiar HTML) */
+.hero .description{
+  max-width: 820px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);         /* glass suave */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 50px rgba(0,0,0,.28);
+  backdrop-filter: blur(6px) saturate(1.05);      /* si hay soporte */
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  color: var(--text);
+}
+
+.hero .description p{
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.9;
+  letter-spacing: .2px;
+  text-align: left;                               /* o 'center' si así lo querías */
+}
+
+/* detalle de acento izquierdo (opcional, quítalo si no lo quieres) */
+.hero .description::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events:none;
+}
+.hero .description{
+  position: relative;
+}
+.hero .description::after
+{
+  content:"";
+  position:absolute;
+  left: 0; top: 12px; bottom
+  }
