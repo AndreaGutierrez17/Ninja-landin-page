@@ -1,7 +1,7 @@
 :root{
   --bg:#927107;
   --card:#efb85b;
-  --text:#e6e9ef;
+  --text:#f0ecec;
   --muted:#fcfcfc;
   --accent:#ff9500;      /* guiño a tu 'GO!' */
   --brand:#e7dfd0;       /* puedes ajustar a los colores del logo */
@@ -23,7 +23,7 @@ body{
   font-weight: 400;
 }
 
-/* ===== INTRO intacto + fondo animado ===== */
+
 /* ===== INTRO ===== */
 #intro{
   position:relative;
@@ -172,7 +172,7 @@ p{ margin:0 0 16px 0; color:var(--text); }
 .description{
   flex: 1 1 420px;
   max-width: 680px;
-  color: #fff;
+  color: #090909;
 }
 
 .store-buttons{
@@ -365,3 +365,11 @@ body { font-family: var(--font-body) !important; }
   position:absolute;
   left: 0; top: 12px; bottom
   }
+
+  /* Solo el texto del bloque .description en negro */
+.hero .description,
+.hero .description p,
+.hero .description a {
+  color: #000 !important;
+  text-shadow: none; /* opcional: quita el brillo para que se vea nítido */
+}
